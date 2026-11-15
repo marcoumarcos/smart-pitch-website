@@ -5,7 +5,7 @@
   const EL = {
     // Page
     "smart-pitch | VAR replay & match recording for sports venues": "smart-pitch | VAR replay και καταγραφή αγώνων για αθλητικές εγκαταστάσεις",
-    "smart-pitch gives sports venues VAR-style instant replay and automatic match recording, with shareable videos players can edit and download.": "Το smart-pitch προσφέρει στις αθλητικές εγκαταστάσεις άμεσο replay τύπου VAR και καταγραφή αγώνων, με βίντεο που οι παίκτες μπορούν να επεξεργαστούν, να κατεβάσουν και να μοιραστούν.",
+    "smart-pitch gives sports venues VAR-style instant replay and match recording for football, tennis, padel, basketball, volleyball and more, with shareable videos players can edit and download.": "Το smart-pitch προσφέρει στις αθλητικές εγκαταστάσεις άμεσο replay τύπου VAR και καταγραφή αγώνων για ποδόσφαιρο, τένις, padel, μπάσκετ, βόλεϊ και άλλα αθλήματα, με βίντεο που οι παίκτες μπορούν να επεξεργαστούν, να κατεβάσουν και να μοιραστούν.",
 
     // Menu
     "What we do": "Τι κάνουμε",
@@ -19,9 +19,15 @@
     "Every match.": "Κάθε αγώνας.",
     "Every moment.": "Κάθε φάση.",
     "Replayed and shared.": "Σε replay, έτοιμη να μοιραστεί.",
-    "smart-pitch brings professional-level video to your venue. Our cameras and software give players VAR-style instant replays during the game and record every match, so players can relive, edit and share their best moments afterwards.": "Το smart-pitch φέρνει βίντεο επαγγελματικού επιπέδου στην εγκατάστασή σας. Οι κάμερες και το λογισμικό μας δίνουν στους παίκτες άμεσο replay τύπου VAR κατά τη διάρκεια του αγώνα και καταγράφουν κάθε παιχνίδι, ώστε οι παίκτες να ξαναζούν, να επεξεργάζονται και να μοιράζονται τις καλύτερες στιγμές τους.",
+    "smart-pitch brings professional-level video to any sports venue, from football pitches to tennis, padel, basketball and volleyball courts. Our cameras and software give players VAR-style instant replays during the game and record every match, so they can relive, edit and share their best moments afterwards.": "Το smart-pitch φέρνει βίντεο επαγγελματικού επιπέδου σε κάθε αθλητική εγκατάσταση, από γήπεδα ποδοσφαίρου μέχρι γήπεδα τένις, padel, μπάσκετ και βόλεϊ. Οι κάμερες και το λογισμικό μας δίνουν στους παίκτες άμεσο replay τύπου VAR κατά τη διάρκεια του αγώνα και καταγράφουν κάθε παιχνίδι, ώστε οι παίκτες να ξαναζούν, να επεξεργάζονται και να μοιράζονται τις καλύτερες στιγμές τους.",
+    "Football": "Ποδόσφαιρο",
+    "Tennis": "Τένις",
+    "Padel": "Padel",
+    "Basketball": "Μπάσκετ",
+    "Volleyball": "Βόλεϊ",
+    "…and more": "…και άλλα",
     "VAR instant replay": "Άμεσο replay VAR",
-    "Settle every close call on the spot. Review goals, fouls and offsides from multiple angles while the match is still being played.": "Λύστε κάθε αμφισβητούμενη φάση επί τόπου. Δείτε ξανά γκολ, φάουλ και οφσάιντ από πολλές γωνίες, ενώ ο αγώνας είναι ακόμα σε εξέλιξη.",
+    "Settle every close call on the spot. Review goals, line calls, fouls and match points from multiple angles while the game is still being played.": "Λύστε κάθε αμφισβητούμενη φάση επί τόπου. Δείτε ξανά γκολ, αμφίβολες μπαλιές στη γραμμή, φάουλ και match points από πολλές γωνίες, ενώ ο αγώνας είναι ακόμα σε εξέλιξη.",
     "Automatic match recording": "Αυτόματη καταγραφή αγώνων",
     "Your staff simply start and stop the recording. Our system takes over from there, capturing the match in high quality and preparing the video for players.": "Το προσωπικό σας απλώς ξεκινά και σταματά την καταγραφή. Από εκεί και πέρα αναλαμβάνει το σύστημά μας, καταγράφοντας τον αγώνα σε υψηλή ποιότητα και ετοιμάζοντας το βίντεο για τους παίκτες.",
     "Share, edit & download": "Κοινοποίηση, επεξεργασία & λήψη",
@@ -36,7 +42,7 @@
     "Photo 3": "Φωτογραφία 3",
     "Team member name": "Όνομα μέλους ομάδας",
     "Role / title": "Ρόλος / θέση",
-    "smart-pitch was founded on a simple idea: the technology used in professional stadiums, from VAR to match video, should be available on every pitch. We set out to make it affordable and easy for any sports venue.": "Το smart-pitch ξεκίνησε από μια απλή ιδέα: η τεχνολογία των επαγγελματικών γηπέδων, από το VAR μέχρι το βίντεο αγώνων, πρέπει να είναι διαθέσιμη σε κάθε γήπεδο. Στόχος μας είναι να την κάνουμε οικονομική και εύκολη για κάθε αθλητική εγκατάσταση.",
+    "smart-pitch was founded on a simple idea: the technology used in professional stadiums, from VAR to match video, should be available on every pitch and court. We set out to make it affordable and easy for any sports venue.": "Το smart-pitch ξεκίνησε από μια απλή ιδέα: η τεχνολογία των επαγγελματικών γηπέδων, από το VAR μέχρι το βίντεο αγώνων, πρέπει να είναι διαθέσιμη σε κάθε γήπεδο, όποιο κι αν είναι το άθλημα. Στόχος μας είναι να την κάνουμε οικονομική και εύκολη για κάθε αθλητική εγκατάσταση.",
     "Today we supply, install and support both the camera hardware and the software, so venues have a single partner, and players get replays and videos that keep them coming back.": "Σήμερα προμηθεύουμε, εγκαθιστούμε και υποστηρίζουμε τόσο τον εξοπλισμό καμερών όσο και το λογισμικό, ώστε οι εγκαταστάσεις να έχουν έναν μόνο συνεργάτη και οι παίκτες να απολαμβάνουν replays και βίντεο που τους κάνουν να επιστρέφουν.",
     "Venues equipped": "Εγκαταστάσεις",
     "Matches recorded": "Καταγεγραμμένοι αγώνες",
@@ -44,8 +50,8 @@
 
     // Testimonials
     "What venues say": "Τι λένε οι πελάτες μας",
-    "The instant replay has ended the arguments on our pitches. Players check the call, accept it and get on with the game.": "Το άμεσο replay έβαλε τέλος στους καβγάδες στα γήπεδά μας. Οι παίκτες βλέπουν τη φάση, τη δέχονται και συνεχίζουν το παιχνίδι.",
-    "Our players love getting a link to their match after the game. They share their goals with friends, and that brings new teams to us.": "Οι παίκτες μας λατρεύουν που παίρνουν σύνδεσμο με τον αγώνα τους μετά το παιχνίδι. Μοιράζονται τα γκολ τους με φίλους και αυτό μας φέρνει νέες ομάδες.",
+    "The instant replay has ended the arguments on our courts. Players check the call, accept it and get on with the game.": "Το άμεσο replay έβαλε τέλος στους καβγάδες στα γήπεδά μας. Οι παίκτες βλέπουν τη φάση, τη δέχονται και συνεχίζουν το παιχνίδι.",
+    "Our players love getting a link to their match after the game. They share their best shots with friends, and that brings new teams to us.": "Οι παίκτες μας λατρεύουν που παίρνουν σύνδεσμο με τον αγώνα τους μετά το παιχνίδι. Μοιράζονται τις καλύτερες φάσεις τους με φίλους και αυτό μας φέρνει νέες ομάδες.",
     "Setup was quick and the system is simple. Our staff press start and stop, and the rest happens automatically.": "Η εγκατάσταση έγινε γρήγορα και το σύστημα είναι πολύ απλό. Το προσωπικό μας πατάει έναρξη και λήξη, και όλα τα υπόλοιπα γίνονται αυτόματα.",
     "Video replay has become a real reason for teams to book with us instead of the venue down the road.": "Το βίντεο replay έγινε πραγματικός λόγος για να κλείνουν οι ομάδες σε εμάς αντί για το διπλανό γήπεδο.",
     "Client name": "Όνομα πελάτη",
