@@ -7,7 +7,7 @@
 <meta name="description" content="smart-pitch gives sports venues VAR-style instant replay and automatic match recording, with shareable videos players can edit and download.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --pitch: #0b3d2e;
@@ -24,11 +24,11 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
-  body { font-family: "Barlow", system-ui, sans-serif; color: var(--ink); background: var(--chalk); line-height: 1.6; font-size: 17px; }
+  body { font-family: "Inter", system-ui, sans-serif; color: var(--ink); background: var(--chalk); line-height: 1.6; font-size: 17px; }
   img { max-width: 100%; display: block; }
   a { color: inherit; }
   .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-  h1, h2, h3, .brand { font-family: "Barlow Condensed", sans-serif; text-transform: uppercase; letter-spacing: .02em; line-height: 1.05; }
+  h1, h2, h3, .brand { font-family: "Fira Sans Extra Condensed", sans-serif; text-transform: uppercase; letter-spacing: .02em; line-height: 1.05; }
   .eyebrow { display: inline-block; font-weight: 600; font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; color: var(--turf); margin-bottom: 14px; }
   section { padding: 110px 0; }
   h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin-bottom: 20px; }
@@ -41,12 +41,17 @@
   .brand-mark { width: 30px; height: 30px; border: 2.5px solid var(--lime); border-radius: 50%; position: relative; }
   .brand-mark::before { content: ""; position: absolute; left: 50%; top: -2px; bottom: -2px; width: 2.5px; background: var(--lime); transform: translateX(-50%); }
   .brand span.dash { color: var(--lime); }
+  .brand > span:last-child { white-space: nowrap; }
+  nav { margin-left: auto; }
   nav ul { list-style: none; display: flex; gap: 6px; }
+  .lang-toggle { order: 3; margin-left: 14px; display: flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: none; cursor: pointer; font: inherit; }
+  .lang-toggle span { padding: 5px 10px; border-radius: 999px; color: rgba(255,255,255,.7); font-size: .82rem; font-weight: 600; letter-spacing: .04em; transition: background .2s, color .2s; }
+  .lang-toggle span.on { background: #fff; color: var(--pitch-deep); }
   nav a { display: block; padding: 8px 14px; border-radius: 999px; color: rgba(255,255,255,.82); text-decoration: none; font-weight: 500; font-size: .98rem; transition: background .2s, color .2s; }
   nav a:hover, nav a.active { background: rgba(255,255,255,.1); color: #fff; }
   nav a.cta { background: var(--lime); color: var(--pitch-deep); font-weight: 600; }
   nav a.cta:hover { background: #d8ff5c; }
-  .menu-btn { display: none; background: none; border: 0; color: #fff; cursor: pointer; padding: 8px; }
+  .menu-btn { order: 4; display: none; background: none; border: 0; color: #fff; cursor: pointer; padding: 8px; }
   .menu-btn span { display: block; width: 24px; height: 2px; background: currentColor; margin: 5px 0; transition: .25s; }
 
   /* ---------- Offering (hero) ---------- */
@@ -87,7 +92,7 @@
   .about-text p { color: var(--muted); }
   .about-text p + p { margin-top: 14px; }
   .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .stat strong { display: block; font-family: "Barlow Condensed", sans-serif; font-size: 2.8rem; color: var(--turf); line-height: 1; }
+  .stat strong { display: block; font-family: "Fira Sans Extra Condensed", sans-serif; font-size: 2.8rem; color: var(--turf); line-height: 1; }
   .stat span { font-size: .9rem; color: var(--muted); }
 
   /* ---------- Testimonials ---------- */
@@ -96,7 +101,7 @@
   .slides { overflow: hidden; }
   .track { display: flex; transition: transform .5s cubic-bezier(.6,.05,.3,1); }
   .slide { min-width: 100%; padding: 8px 4px; }
-  blockquote { font-family: "Barlow Condensed", sans-serif; font-weight: 600; font-size: clamp(1.6rem, 3.4vw, 2.5rem); line-height: 1.2; position: relative; padding-left: 0; }
+  blockquote { font-family: "Fira Sans Extra Condensed", sans-serif; font-weight: 600; font-size: clamp(1.6rem, 3.4vw, 2.5rem); line-height: 1.2; position: relative; padding-left: 0; }
   blockquote::before { content: "“"; display: block; font-size: 5rem; line-height: .6; color: var(--lime); -webkit-text-stroke: 2px var(--pitch); margin-bottom: 8px; }
   .who { margin-top: 24px; display: flex; align-items: center; gap: 14px; }
   .avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--pitch); color: var(--lime); display: grid; place-items: center; font-weight: 700; }
@@ -159,13 +164,14 @@
     .carousel .next { right: calc(50% - 130px); }
     .dots { margin-top: 48px; }
     .menu-btn { display: block; }
+    .lang-toggle { margin-left: auto; margin-right: 8px; }
     nav { position: fixed; top: var(--header-h); left: 0; right: 0; background: var(--pitch-deep); border-bottom: 1px solid var(--line); transform: translateY(-120%); transition: transform .3s; }
     nav.open { transform: none; }
     nav ul { flex-direction: column; padding: 16px 24px 24px; }
     nav a { padding: 12px 14px; }
     section { padding: 80px 0; }
   }
-  @media (max-width: 560px) { .row { grid-template-columns: 1fr; } .video-wrap { margin-bottom: -90px; } #about { padding-top: 170px; } }
+  @media (max-width: 560px) { .brand { font-size: 1.5rem; } .row { grid-template-columns: 1fr; } .video-wrap { margin-bottom: -90px; } #about { padding-top: 170px; } }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .track { transition: none; } }
 </style>
 </head>
@@ -188,6 +194,7 @@
         <li><a href="#contact" class="cta">Contact us</a></li>
       </ul>
     </nav>
+    <button class="lang-toggle" type="button" aria-label="Αλλαγή σε Ελληνικά"><span data-l="en" class="on">EN</span><span data-l="el">ΕΛ</span></button>
   </div>
 </header>
 
@@ -288,7 +295,7 @@
             <div class="who"><div class="avatar">CD</div><div><strong>Client name</strong><span>Owner, Venue name</span></div></div>
           </div>
           <div class="slide" role="group" aria-label="3 of 4">
-            <blockquote>Setup was quick and the system runs on its own. Every game is recorded without our staff having to do anything.</blockquote>
+            <blockquote>Setup was quick and the system is simple. Our staff press start and stop, and the rest happens automatically.</blockquote>
             <div class="who"><div class="avatar">EF</div><div><strong>Client name</strong><span>Operations director, Venue name</span></div></div>
           </div>
           <div class="slide" role="group" aria-label="4 of 4">
@@ -375,6 +382,7 @@
 </section>
 </main>
 
+<script src="i18n.js"></script>
 <script>
   // Year in footer
   document.getElementById('year').textContent = new Date().getFullYear();
@@ -446,18 +454,18 @@
     const btn = form.querySelector('button');
     status.className = 'form-status';
     if (form.access_key.value === 'YOUR_ACCESS_KEY') {
-      status.textContent = 'The contact form is not connected yet (add your Web3Forms access key).';
+      status.textContent = t('The contact form is not connected yet (add your Web3Forms access key).');
       status.classList.add('err'); return;
     }
-    btn.disabled = true; status.textContent = 'Sending…';
+    btn.disabled = true; status.textContent = t('Sending…');
     try {
       const res = await fetch(form.action, { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form) });
       const data = await res.json();
       if (!data.success) throw new Error(data.message);
-      status.textContent = 'Thanks! Your message has been sent. We’ll be in touch soon.';
+      status.textContent = t('Thanks! Your message has been sent. We’ll be in touch soon.');
       status.classList.add('ok'); form.reset();
     } catch (err) {
-      status.textContent = 'Sorry, something went wrong. Please email us directly.';
+      status.textContent = t('Sorry, something went wrong. Please email us directly.');
       status.classList.add('err');
     } finally { btn.disabled = false; }
   });
