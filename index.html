@@ -109,6 +109,17 @@
   .dots button { width: 10px; height: 10px; border-radius: 999px; border: 0; background: #cfd8d3; cursor: pointer; transition: width .3s, background .3s; }
   .dots button.on { width: 30px; background: var(--turf); }
 
+  /* ---------- Venues map ---------- */
+  #venues { background: var(--chalk); }
+  .venues-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 32px; margin-top: 40px; align-items: stretch; }
+  .venue-list { list-style: none; display: grid; gap: 12px; align-content: start; }
+  .venue-list li { background: #fff; border-radius: var(--radius); padding: 16px 18px; display: flex; gap: 14px; align-items: center; border: 1px solid #e3e9e5; }
+  .pin { flex: 0 0 34px; height: 34px; border-radius: 50%; background: var(--pitch); color: var(--lime); display: grid; place-items: center; }
+  .venue-list strong { display: block; line-height: 1.2; }
+  .venue-list span { color: var(--muted); font-size: .92rem; }
+  .map { position: relative; min-height: 440px; border-radius: 18px; overflow: hidden; border: 1px solid #e3e9e5; background: #e2e9e4; }
+  .map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
   /* ---------- Contact / Footer ---------- */
   #contact { background: var(--pitch-deep); color: #fff; padding-bottom: 0; }
   #contact .eyebrow { color: var(--lime); }
@@ -140,7 +151,8 @@
   @media (max-width: 900px) {
     .features, .team { grid-template-columns: 1fr; }
     .team { max-width: 420px; }
-    .about-text, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .about-text, .contact-grid, .venues-grid { grid-template-columns: 1fr; gap: 32px; }
+    .map { min-height: 360px; }
     .carousel { grid-template-columns: 1fr; }
     .carousel .arrow { position: absolute; bottom: -78px; }
     .carousel .prev { left: calc(50% - 130px); }
@@ -172,6 +184,7 @@
         <li><a href="#offering">What we do</a></li>
         <li><a href="#about">About us</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#venues">Our venues</a></li>
         <li><a href="#contact" class="cta">Contact us</a></li>
       </ul>
     </nav>
@@ -195,7 +208,7 @@
       <div class="feature">
         <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></svg></div>
         <h3>Automatic match recording</h3>
-        <p>Every game on your pitches is recorded in high quality, with no camera operator and no extra work for your staff.</p>
+        <p>Your staff simply start and stop the recording. Our system takes over from there, capturing the match in high quality and preparing the video for players.</p>
       </div>
       <div class="feature">
         <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/></svg></div>
@@ -290,6 +303,32 @@
   </div>
 </section>
 
+<!-- ================= VENUES MAP ================= -->
+<section id="venues">
+  <div class="wrap">
+    <span class="eyebrow">Our venues</span>
+    <h2>Where to find smart-pitch</h2>
+    <p class="lead">Play at one of the venues already using smart-pitch and get your match on video.</p>
+
+    <div class="venues-grid">
+      <ul class="venue-list">
+        <!-- Edit or add venues here -->
+        <li><div class="pin"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 21s-7-6.2-7-12a7 7 0 0114 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div><div><strong>Venue name</strong><span>City, Country</span></div></li>
+        <li><div class="pin"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 21s-7-6.2-7-12a7 7 0 0114 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div><div><strong>Venue name</strong><span>City, Country</span></div></li>
+        <li><div class="pin"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 21s-7-6.2-7-12a7 7 0 0114 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div><div><strong>Venue name</strong><span>City, Country</span></div></li>
+      </ul>
+
+      <!-- Map with your venues pinned:
+           1. Go to https://www.google.com/mymaps, create a map and add a pin for each venue.
+           2. Click Share, set it to "Anyone with the link can view", then copy the link.
+           3. The link contains mid=XXXXXXXX. Paste that XXXXXXXX in place of YOUR_MAP_ID below. -->
+      <div class="map" data-mymaps-id="YOUR_MAP_ID">
+        <iframe src="https://maps.google.com/maps?q=Greece&amp;z=6&amp;output=embed" title="Map of smart-pitch venues" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= CONTACT + COMPANY INFO ================= -->
 <section id="contact">
   <div class="wrap">
@@ -367,6 +406,12 @@
       el.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0" title="smart-pitch video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
     }
   });
+
+  // Venues map (shows your Google My Maps map once its ID is set)
+  const map = document.querySelector('.map[data-mymaps-id]');
+  if (map && map.dataset.mymapsId !== 'YOUR_MAP_ID') {
+    map.querySelector('iframe').src = 'https://www.google.com/maps/d/embed?mid=' + encodeURIComponent(map.dataset.mymapsId);
+  }
 
   // Testimonials carousel
   const track = document.querySelector('.track');
