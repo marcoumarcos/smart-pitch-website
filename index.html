@@ -1,0 +1,421 @@
+TEST<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>smart-pitch | Smart technology for sports venues</title>
+<meta name="description" content="smart-pitch provides hardware and software that help sports venues run smarter, sell more and delight players.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pitch: #0b3d2e;
+    --pitch-deep: #072a20;
+    --turf: #14a06f;
+    --lime: #c6f432;
+    --chalk: #f4f7f2;
+    --ink: #10201a;
+    --muted: #5b6d65;
+    --line: rgba(255,255,255,.18);
+    --radius: 14px;
+    --header-h: 72px;
+    --max: 1160px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
+  body { font-family: "Barlow", system-ui, sans-serif; color: var(--ink); background: var(--chalk); line-height: 1.6; font-size: 17px; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3, .brand { font-family: "Barlow Condensed", sans-serif; text-transform: uppercase; letter-spacing: .02em; line-height: 1.05; }
+  .eyebrow { display: inline-block; font-weight: 600; font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; color: var(--turf); margin-bottom: 14px; }
+  section { padding: 110px 0; }
+  h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin-bottom: 20px; }
+  .lead { font-size: 1.15rem; color: var(--muted); max-width: 680px; }
+
+  /* ---------- Header ---------- */
+  header { position: fixed; inset: 0 0 auto 0; height: var(--header-h); z-index: 50; background: rgba(7,42,32,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  header .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .brand { font-size: 1.9rem; font-weight: 800; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .brand-mark { width: 30px; height: 30px; border: 2.5px solid var(--lime); border-radius: 50%; position: relative; }
+  .brand-mark::before { content: ""; position: absolute; left: 50%; top: -2px; bottom: -2px; width: 2.5px; background: var(--lime); transform: translateX(-50%); }
+  .brand span.dash { color: var(--lime); }
+  nav ul { list-style: none; display: flex; gap: 6px; }
+  nav a { display: block; padding: 8px 14px; border-radius: 999px; color: rgba(255,255,255,.82); text-decoration: none; font-weight: 500; font-size: .98rem; transition: background .2s, color .2s; }
+  nav a:hover, nav a.active { background: rgba(255,255,255,.1); color: #fff; }
+  nav a.cta { background: var(--lime); color: var(--pitch-deep); font-weight: 600; }
+  nav a.cta:hover { background: #d8ff5c; }
+  .menu-btn { display: none; background: none; border: 0; color: #fff; cursor: pointer; padding: 8px; }
+  .menu-btn span { display: block; width: 24px; height: 2px; background: currentColor; margin: 5px 0; transition: .25s; }
+
+  /* ---------- Offering (hero) ---------- */
+  #offering { position: relative; padding-top: calc(var(--header-h) + 90px); background: var(--pitch); color: #fff; overflow: visible; }
+  #offering::before { overflow: hidden; }
+  #offering::before { /* pitch markings */
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+    background:
+      radial-gradient(circle at 50% 38%, transparent 159px, var(--line) 160px, var(--line) 162px, transparent 163px),
+      linear-gradient(90deg, transparent calc(50% - 1px), var(--line) calc(50% - 1px), var(--line) calc(50% + 1px), transparent calc(50% + 1px)),
+      repeating-linear-gradient(90deg, rgba(255,255,255,.025) 0 90px, transparent 90px 180px);
+  }
+  #offering .wrap { position: relative; }
+  #offering h1 { font-size: clamp(2.8rem, 7.5vw, 5.6rem); max-width: 900px; margin-bottom: 24px; }
+  #offering h1 em { font-style: normal; color: var(--lime); }
+  #offering .eyebrow { color: var(--lime); }
+  #offering .lead { color: rgba(255,255,255,.78); }
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 48px 0 64px; }
+  .feature { border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; background: rgba(255,255,255,.04); }
+  .feature .icon { width: 42px; height: 42px; border-radius: 10px; background: var(--lime); color: var(--pitch-deep); display: grid; place-items: center; margin-bottom: 16px; }
+  .feature h3 { font-size: 1.45rem; margin-bottom: 8px; }
+  .feature p { color: rgba(255,255,255,.72); font-size: .98rem; }
+  .video { position: relative; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; background: var(--pitch-deep); box-shadow: 0 30px 80px rgba(0,0,0,.45); border: 1px solid var(--line); }
+  .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .video-placeholder { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; color: rgba(255,255,255,.7); padding: 20px; }
+  .play { width: 84px; height: 84px; border-radius: 50%; background: var(--lime); display: grid; place-items: center; margin: 0 auto 16px; }
+  .play::after { content: ""; border-left: 26px solid var(--pitch-deep); border-top: 16px solid transparent; border-bottom: 16px solid transparent; margin-left: 6px; }
+  .video-wrap { margin-bottom: -180px; position: relative; z-index: 2; }
+
+  /* ---------- About ---------- */
+  #about { padding-top: 260px; background: var(--chalk); }
+  .team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 48px 0 40px; }
+  .photo { aspect-ratio: 4 / 5; border-radius: var(--radius); background: repeating-linear-gradient(135deg, #e2e9e4 0 14px, #d8e1db 14px 28px); display: grid; place-items: center; color: var(--muted); font-weight: 600; font-size: .9rem; letter-spacing: .1em; text-transform: uppercase; overflow: hidden; }
+  .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .member h3 { font-size: 1.5rem; margin-top: 16px; }
+  .member p { color: var(--muted); }
+  .about-text { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; border-top: 2px solid var(--ink); padding-top: 36px; }
+  .about-text p { color: var(--muted); }
+  .about-text p + p { margin-top: 14px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .stat strong { display: block; font-family: "Barlow Condensed", sans-serif; font-size: 2.8rem; color: var(--turf); line-height: 1; }
+  .stat span { font-size: .9rem; color: var(--muted); }
+
+  /* ---------- Testimonials ---------- */
+  #testimonials { background: #fff; }
+  .carousel { position: relative; margin-top: 40px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 24px; }
+  .slides { overflow: hidden; }
+  .track { display: flex; transition: transform .5s cubic-bezier(.6,.05,.3,1); }
+  .slide { min-width: 100%; padding: 8px 4px; }
+  blockquote { font-family: "Barlow Condensed", sans-serif; font-weight: 600; font-size: clamp(1.6rem, 3.4vw, 2.5rem); line-height: 1.2; position: relative; padding-left: 0; }
+  blockquote::before { content: "“"; display: block; font-size: 5rem; line-height: .6; color: var(--lime); -webkit-text-stroke: 2px var(--pitch); margin-bottom: 8px; }
+  .who { margin-top: 24px; display: flex; align-items: center; gap: 14px; }
+  .avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--pitch); color: var(--lime); display: grid; place-items: center; font-weight: 700; }
+  .who strong { display: block; }
+  .who span { color: var(--muted); font-size: .95rem; }
+  .arrow { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--ink); background: transparent; cursor: pointer; display: grid; place-items: center; transition: background .2s, color .2s; color: var(--ink); }
+  .arrow:hover { background: var(--ink); color: #fff; }
+  .arrow svg { width: 22px; height: 22px; }
+  .dots { display: flex; gap: 8px; justify-content: center; margin-top: 32px; }
+  .dots button { width: 10px; height: 10px; border-radius: 999px; border: 0; background: #cfd8d3; cursor: pointer; transition: width .3s, background .3s; }
+  .dots button.on { width: 30px; background: var(--turf); }
+
+  /* ---------- Contact / Footer ---------- */
+  #contact { background: var(--pitch-deep); color: #fff; padding-bottom: 0; }
+  #contact .eyebrow { color: var(--lime); }
+  #contact .lead { color: rgba(255,255,255,.7); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; margin-top: 40px; }
+  .info-list { list-style: none; display: grid; gap: 22px; }
+  .info-list li { display: flex; gap: 14px; }
+  .info-list .ico { flex: 0 0 40px; height: 40px; border-radius: 10px; border: 1px solid var(--line); display: grid; place-items: center; color: var(--lime); }
+  .info-list small { display: block; color: rgba(255,255,255,.55); text-transform: uppercase; letter-spacing: .12em; font-size: .72rem; }
+  form { background: rgba(255,255,255,.05); border: 1px solid var(--line); border-radius: 18px; padding: 32px; display: grid; gap: 16px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  label { font-size: .85rem; color: rgba(255,255,255,.7); display: grid; gap: 6px; }
+  input, textarea, select { font: inherit; color: #fff; background: rgba(0,0,0,.25); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; width: 100%; }
+  select option { color: var(--ink); }
+  input:focus, textarea:focus, select:focus { outline: 2px solid var(--lime); outline-offset: 1px; border-color: transparent; }
+  textarea { min-height: 130px; resize: vertical; }
+  .btn { font: inherit; font-weight: 600; background: var(--lime); color: var(--pitch-deep); border: 0; border-radius: 999px; padding: 14px 28px; cursor: pointer; justify-self: start; transition: transform .15s, background .2s; }
+  .btn:hover { background: #d8ff5c; transform: translateY(-1px); }
+  .btn:disabled { opacity: .6; cursor: wait; }
+  .form-status { font-size: .95rem; min-height: 1.4em; }
+  .form-status.ok { color: var(--lime); }
+  .form-status.err { color: #ff9b8a; }
+  .hp { position: absolute; left: -9999px; }
+  footer { margin-top: 90px; border-top: 1px solid var(--line); padding: 28px 0; color: rgba(255,255,255,.5); font-size: .9rem; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer a { color: rgba(255,255,255,.7); text-decoration: none; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .features, .team { grid-template-columns: 1fr; }
+    .team { max-width: 420px; }
+    .about-text, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .carousel { grid-template-columns: 1fr; }
+    .carousel .arrow { position: absolute; bottom: -78px; }
+    .carousel .prev { left: calc(50% - 130px); }
+    .carousel .next { right: calc(50% - 130px); }
+    .dots { margin-top: 48px; }
+    .menu-btn { display: block; }
+    nav { position: fixed; top: var(--header-h); left: 0; right: 0; background: var(--pitch-deep); border-bottom: 1px solid var(--line); transform: translateY(-120%); transition: transform .3s; }
+    nav.open { transform: none; }
+    nav ul { flex-direction: column; padding: 16px 24px 24px; }
+    nav a { padding: 12px 14px; }
+    section { padding: 80px 0; }
+  }
+  @media (max-width: 560px) { .row { grid-template-columns: 1fr; } .video-wrap { margin-bottom: -90px; } #about { padding-top: 170px; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .track { transition: none; } }
+</style>
+</head>
+<body id="top">
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="smart-pitch, back to top">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>smart<span class="dash">-</span>pitch</span>
+    </a>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav id="nav">
+      <ul>
+        <li><a href="#offering">What we do</a></li>
+        <li><a href="#about">About us</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact" class="cta">Contact us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- ================= OFFERING ================= -->
+<section id="offering">
+  <div class="wrap">
+    <span class="eyebrow">Hardware + software for sports venues</span>
+    <h1>Run a <em>smarter</em> venue, from booking to final whistle.</h1>
+    <p class="lead">smart-pitch combines purpose-built hardware with easy-to-use software so sports venues can automate day-to-day operations, give players a better experience and grow revenue, all from one platform.</p>
+
+    <div class="features">
+      <div class="feature">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+        <h3>Smart hardware</h3>
+        <p>Durable devices installed at your venue, designed for outdoor and indoor pitches and built to run all day.</p>
+      </div>
+      <div class="feature">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19V5M4 19h16M8 15l4-4 3 3 5-6"/></svg></div>
+        <h3>Venue software</h3>
+        <p>A simple dashboard to manage bookings, monitor usage and see how your venue is performing in real time.</p>
+      </div>
+      <div class="feature">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6.3L12 16.6 6.5 19.5l1-6.3L3 8.9 9 8z"/></svg></div>
+        <h3>Better player experience</h3>
+        <p>Give players and teams features that keep them coming back, while your staff spend less time on admin.</p>
+      </div>
+    </div>
+
+    <div class="video-wrap">
+      <!-- To show your video: replace YOUR_VIDEO_ID below with the ID from your YouTube link
+           (e.g. for https://www.youtube.com/watch?v=abc123XYZ the ID is abc123XYZ) -->
+      <div class="video" data-youtube-id="YOUR_VIDEO_ID">
+        <div class="video-placeholder">
+          <div><div class="play"></div>Your product video will appear here</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <span class="eyebrow">About us</span>
+    <h2>Who we are</h2>
+    <p class="lead">We're a team of engineers, designers and sports lovers who believe every venue deserves technology that just works.</p>
+
+    <div class="team">
+      <!-- Replace each <div class="photo">…</div> with <div class="photo"><img src="images/photo1.jpg" alt="Description"></div> -->
+      <div class="member">
+        <div class="photo">Photo 1</div>
+        <h3>Team member name</h3>
+        <p>Role / title</p>
+      </div>
+      <div class="member">
+        <div class="photo">Photo 2</div>
+        <h3>Team member name</h3>
+        <p>Role / title</p>
+      </div>
+      <div class="member">
+        <div class="photo">Photo 3</div>
+        <h3>Team member name</h3>
+        <p>Role / title</p>
+      </div>
+    </div>
+
+    <div class="about-text">
+      <div>
+        <p>smart-pitch was founded to solve a simple problem: running a sports venue involves too many disconnected tools, too much paperwork and too little insight. We set out to bring everything together in one system.</p>
+        <p>Today we design, install and support both the hardware and the software, so our clients have a single partner they can rely on, from setup to everyday use.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><strong>00+</strong><span>Venues equipped</span></div>
+        <div class="stat"><strong>00k</strong><span>Games played</span></div>
+        <div class="stat"><strong>24/7</strong><span>Support</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section id="testimonials">
+  <div class="wrap">
+    <span class="eyebrow">Testimonials</span>
+    <h2>What venues say</h2>
+
+    <div class="carousel" aria-roledescription="carousel" aria-label="Customer testimonials">
+      <button class="arrow prev" aria-label="Previous testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="slides">
+        <div class="track">
+          <div class="slide" role="group" aria-label="1 of 4">
+            <blockquote>Since installing smart-pitch, our staff spend far less time on admin and our pitches are busier than ever.</blockquote>
+            <div class="who"><div class="avatar">AB</div><div><strong>Client name</strong><span>Venue manager, Venue name</span></div></div>
+          </div>
+          <div class="slide" role="group" aria-label="2 of 4">
+            <blockquote>The setup was quick, the system is easy to use, and the support team is always there when we need them.</blockquote>
+            <div class="who"><div class="avatar">CD</div><div><strong>Client name</strong><span>Owner, Venue name</span></div></div>
+          </div>
+          <div class="slide" role="group" aria-label="3 of 4">
+            <blockquote>Our players love the experience. It has become a real reason for teams to choose our venue.</blockquote>
+            <div class="who"><div class="avatar">EF</div><div><strong>Client name</strong><span>Operations director, Venue name</span></div></div>
+          </div>
+          <div class="slide" role="group" aria-label="4 of 4">
+            <blockquote>Finally we can see what's happening across all our pitches in one place. It's changed how we run the business.</blockquote>
+            <div class="who"><div class="avatar">GH</div><div><strong>Client name</strong><span>General manager, Venue name</span></div></div>
+          </div>
+        </div>
+      </div>
+      <button class="arrow next" aria-label="Next testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+    <div class="dots" role="tablist" aria-label="Choose testimonial"></div>
+  </div>
+</section>
+
+<!-- ================= CONTACT + COMPANY INFO ================= -->
+<section id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Contact us</span>
+    <h2>Let's talk about your venue</h2>
+    <p class="lead">Tell us a little about your venue and we'll get back to you within one business day.</p>
+
+    <div class="contact-grid">
+      <ul class="info-list">
+        <li><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div><div><small>Company</small>smart-pitch<br>Company legal name · VAT 000000000</div></li>
+        <li><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-12a7 7 0 0114 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div><div><small>Address</small>Street address 00<br>City, Postcode, Country</div></li>
+        <li><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div><div><small>Email</small><a href="mailto:info@smart-pitch.com">info@smart-pitch.com</a></div></li>
+        <li><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg></div><div><small>Phone</small><a href="tel:+300000000000">+30 000 000 0000</a></div></li>
+      </ul>
+
+      <!-- Contact form: messages are emailed to you by Web3Forms (free).
+           1. Go to https://web3forms.com, enter your email, and copy the Access Key you receive.
+           2. Paste it in place of YOUR_ACCESS_KEY below. -->
+      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
+        <input type="hidden" name="subject" value="New enquiry from the smart-pitch website">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+        <div class="row">
+          <label>Name<input type="text" name="name" required autocomplete="name"></label>
+          <label>Email<input type="email" name="email" required autocomplete="email"></label>
+        </div>
+        <div class="row">
+          <label>Venue / company<input type="text" name="venue" autocomplete="organization"></label>
+          <label>Phone (optional)<input type="tel" name="phone" autocomplete="tel"></label>
+        </div>
+        <label>Message<textarea name="message" required></textarea></label>
+        <button class="btn" type="submit">Send message</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="year"></span> smart-pitch. All rights reserved.</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+</section>
+</main>
+
+<script>
+  // Year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile menu
+  const nav = document.getElementById('nav');
+  const menuBtn = document.querySelector('.menu-btn');
+  menuBtn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false);
+  }));
+
+  // Highlight the menu item for the section in view
+  const links = [...nav.querySelectorAll('a')];
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id && !l.classList.contains('cta')));
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('main section').forEach(s => observer.observe(s));
+
+  // YouTube embed (only loads once a real video ID is set)
+  document.querySelectorAll('.video[data-youtube-id]').forEach(el => {
+    const id = el.dataset.youtubeId;
+    if (id && id !== 'YOUR_VIDEO_ID') {
+      el.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0" title="smart-pitch video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+    }
+  });
+
+  // Testimonials carousel
+  const track = document.querySelector('.track');
+  const slides = [...track.children];
+  const dotsEl = document.querySelector('.dots');
+  let index = 0, timer;
+  slides.forEach((_, i) => {
+    const b = document.createElement('button');
+    b.setAttribute('aria-label', `Show testimonial ${i + 1}`);
+    b.addEventListener('click', () => { go(i); restart(); });
+    dotsEl.appendChild(b);
+  });
+  function go(i) {
+    index = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+    [...dotsEl.children].forEach((d, j) => d.classList.toggle('on', j === index));
+  }
+  function restart() { clearInterval(timer); timer = setInterval(() => go(index + 1), 7000); }
+  document.querySelector('.prev').addEventListener('click', () => { go(index - 1); restart(); });
+  document.querySelector('.next').addEventListener('click', () => { go(index + 1); restart(); });
+  document.querySelector('.carousel').addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') { go(index - 1); restart(); }
+    if (e.key === 'ArrowRight') { go(index + 1); restart(); }
+  });
+  go(0); restart();
+
+  // Contact form (sends via Web3Forms without leaving the page)
+  const form = document.getElementById('contact-form');
+  const status = form.querySelector('.form-status');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = form.querySelector('button');
+    status.className = 'form-status';
+    if (form.access_key.value === 'YOUR_ACCESS_KEY') {
+      status.textContent = 'The contact form is not connected yet (add your Web3Forms access key).';
+      status.classList.add('err'); return;
+    }
+    btn.disabled = true; status.textContent = 'Sending…';
+    try {
+      const res = await fetch(form.action, { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form) });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message);
+      status.textContent = 'Thanks! Your message has been sent. We’ll be in touch soon.';
+      status.classList.add('ok'); form.reset();
+    } catch (err) {
+      status.textContent = 'Sorry, something went wrong. Please email us directly.';
+      status.classList.add('err');
+    } finally { btn.disabled = false; }
+  });
+</script>
+</body>
+</html>
