@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>smart-pitch | VAR replay &amp; match recording for sports venues</title>
-<meta name="description" content="smart-pitch gives sports venues VAR-style instant replay and automatic match recording, with shareable videos players can edit and download.">
+<meta name="description" content="smart-pitch gives sports venues VAR-style instant replay and match recording for football, tennis, padel, basketball, volleyball and more, with shareable videos players can edit and download.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -69,6 +69,8 @@
   #offering h1 em { font-style: normal; color: var(--lime); }
   #offering .eyebrow { color: var(--lime); }
   #offering .lead { color: rgba(255,255,255,.78); }
+  .sports { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .sports li { display: flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.06); font-weight: 500; font-size: .95rem; }
   .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 48px 0 64px; }
   .feature { border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; background: rgba(255,255,255,.04); }
   .feature .icon { width: 42px; height: 42px; border-radius: 10px; background: var(--lime); color: var(--pitch-deep); display: grid; place-items: center; margin-bottom: 16px; }
@@ -204,13 +206,22 @@
   <div class="wrap">
     <span class="eyebrow">VAR replay + match recording for sports venues</span>
     <h1>Every match. <em>Every moment.</em> Replayed and shared.</h1>
-    <p class="lead">smart-pitch brings professional-level video to your venue. Our cameras and software give players VAR-style instant replays during the game and record every match, so players can relive, edit and share their best moments afterwards.</p>
+    <p class="lead">smart-pitch brings professional-level video to any sports venue, from football pitches to tennis, padel, basketball and volleyball courts. Our cameras and software give players VAR-style instant replays during the game and record every match, so they can relive, edit and share their best moments afterwards.</p>
+
+    <ul class="sports" aria-label="Supported sports">
+      <li><span aria-hidden="true">⚽</span>Football</li>
+      <li><span aria-hidden="true">🎾</span>Tennis</li>
+      <li><span aria-hidden="true">🏓</span>Padel</li>
+      <li><span aria-hidden="true">🏀</span>Basketball</li>
+      <li><span aria-hidden="true">🏐</span>Volleyball</li>
+      <li>…and more</li>
+    </ul>
 
     <div class="features">
       <div class="feature">
         <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12a9 9 0 109-9 9.7 9.7 0 00-6.7 2.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg></div>
         <h3>VAR instant replay</h3>
-        <p>Settle every close call on the spot. Review goals, fouls and offsides from multiple angles while the match is still being played.</p>
+        <p>Settle every close call on the spot. Review goals, line calls, fouls and match points from multiple angles while the game is still being played.</p>
       </div>
       <div class="feature">
         <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></svg></div>
@@ -264,7 +275,7 @@
 
     <div class="about-text">
       <div>
-        <p>smart-pitch was founded on a simple idea: the technology used in professional stadiums, from VAR to match video, should be available on every pitch. We set out to make it affordable and easy for any sports venue.</p>
+        <p>smart-pitch was founded on a simple idea: the technology used in professional stadiums, from VAR to match video, should be available on every pitch and court. We set out to make it affordable and easy for any sports venue.</p>
         <p>Today we supply, install and support both the camera hardware and the software, so venues have a single partner, and players get replays and videos that keep them coming back.</p>
       </div>
       <div class="stats">
@@ -287,11 +298,11 @@
       <div class="slides">
         <div class="track">
           <div class="slide" role="group" aria-label="1 of 4">
-            <blockquote>The instant replay has ended the arguments on our pitches. Players check the call, accept it and get on with the game.</blockquote>
+            <blockquote>The instant replay has ended the arguments on our courts. Players check the call, accept it and get on with the game.</blockquote>
             <div class="who"><div class="avatar">AB</div><div><strong>Client name</strong><span>Venue manager, Venue name</span></div></div>
           </div>
           <div class="slide" role="group" aria-label="2 of 4">
-            <blockquote>Our players love getting a link to their match after the game. They share their goals with friends, and that brings new teams to us.</blockquote>
+            <blockquote>Our players love getting a link to their match after the game. They share their best shots with friends, and that brings new teams to us.</blockquote>
             <div class="who"><div class="avatar">CD</div><div><strong>Client name</strong><span>Owner, Venue name</span></div></div>
           </div>
           <div class="slide" role="group" aria-label="3 of 4">
